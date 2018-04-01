@@ -19,6 +19,14 @@ namespace OperationJSONGenerator
                 }
                 break;
             }
+
+            var splitFileName = Regex.Split(fileName, "\\s-\\s");
+
+            if (splitFileName.Length != 2) {
+                Console.WriteLine("Error: File name in invalid format!");
+                return;
+            }
+
         }
     }
 }
