@@ -34,6 +34,10 @@ namespace OperationJSONGenerator
             using (var reader = new StreamReader(filePath)) {
                 int lineNumber = 1;
                 var image = reader.ReadLine();
+                if (image == null) {
+                    Console.WriteLine($"Error: Line {lineNumber} - Unexpected EOF");
+                    return;
+                }
                 if (image == string.Empty) {
                     root.Add("image", null);
                 } else {
