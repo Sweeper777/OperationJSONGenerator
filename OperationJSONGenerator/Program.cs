@@ -31,6 +31,15 @@ namespace OperationJSONGenerator
             root.Add("name", splitFileName[1]);
             root.Add("category", splitFileName[0]);
 
+            using (var reader = new StreamReader(filePath)) {
+                int lineNumber = 1;
+                var image = reader.ReadLine();
+                if (image == string.Empty) {
+                    root.Add("image", null);
+                } else {
+                    root.Add("image", image);
+                }
+
         }
     }
 }
