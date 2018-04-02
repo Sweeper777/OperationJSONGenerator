@@ -66,7 +66,16 @@ namespace OperationJSONGenerator
                     }
 
                     inputNames.Add(split[0]);
+                    var inputObject = new JObject();
+                    inputObject.Add("name", split[0]);
+                    inputObject.Add("description", split[1]);
+                    inputObject.Add("rejectFloatingPoint", split.Length == 3 && split[2].StartsWith("int", StringComparison.Ordinal));
+                    jInputs.Add(inputObject);
                 }
+
+                lineNumber++;
+                root.Add("inputs", jInputs);
+
         }
     }
 }
