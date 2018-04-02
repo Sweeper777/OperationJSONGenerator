@@ -27,6 +27,10 @@ namespace OperationJSONGenerator
                 return;
             }
 
+            JObject root = new JObject();
+            root.Add("name", splitFileName[1]);
+            root.Add("category", splitFileName[0]);
+
         }
     }
 }
