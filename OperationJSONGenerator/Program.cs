@@ -44,6 +44,12 @@ namespace OperationJSONGenerator
                     root.Add("image", image);
                 }
 
+                lineNumber++;
+                if (reader.ReadLine() != "") {
+                    Console.WriteLine($"Error: Line {lineNumber} - Blank line expected");
+                    return;
+                }
+
         }
     }
 }
