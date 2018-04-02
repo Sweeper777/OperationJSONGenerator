@@ -59,6 +59,13 @@ namespace OperationJSONGenerator
                         Console.WriteLine($"Error: Line {lineNumber} - Unexpected EOF");
                         return;
                     }
+                    var split = Regex.Split(inputLine, "\\s-\\s");
+                    if (split.Length < 2 || split.Length > 3 || split.Any(x => x == "")) {
+                        Console.WriteLine($"Error: Line {lineNumber} - Invalid format for operation input");
+                        return;
+                    }
+
+                    inputNames.Add(split[0]);
                 }
         }
     }
