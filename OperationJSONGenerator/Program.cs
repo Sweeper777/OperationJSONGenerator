@@ -50,6 +50,16 @@ namespace OperationJSONGenerator
                     return;
                 }
 
+                string inputLine;
+                var jInputs = new JArray();
+                var inputNames = new List<string>();
+                while ((inputLine = reader.ReadLine()) != "") {
+                    lineNumber++;
+                    if (inputLine == null) {
+                        Console.WriteLine($"Error: Line {lineNumber} - Unexpected EOF");
+                        return;
+                    }
+                }
         }
     }
 }
