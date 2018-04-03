@@ -76,6 +76,15 @@ namespace OperationJSONGenerator
                 lineNumber++;
                 root.Add("inputs", jInputs);
 
+                var implementations = new JArray();
+                while ((inputLine = reader.ReadLine()) != null) {
+                    lineNumber++;
+                    var match = Regex.Match(inputLine, "^(.+?)\\s=\\s(.+)$");
+                    if (match == null) {
+                        Console.WriteLine($"Error: Line {lineNumber} - Invalid format for operation implementation");
+                        return;
+                    }
+                }
         }
     }
 }
