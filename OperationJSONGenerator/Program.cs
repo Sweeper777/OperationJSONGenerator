@@ -84,6 +84,11 @@ namespace OperationJSONGenerator
                         Console.WriteLine($"Error: Line {lineNumber} - Invalid format for operation implementation");
                         return;
                     }
+                    var implementationObject = new JObject();
+                    var processedExpression = ProcessExpression(match.Groups[2].Value, inputNames.Concat(new[] {"pi", "pref90", "pref180"}).ToList());
+                    implementationObject.Add("resultName", match.Groups[1].Value);
+                    implementationObject.Add("expression", processedExpression);
+                    implementations.Add(implementationObject);
                 }
         }
     }
