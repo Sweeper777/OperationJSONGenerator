@@ -90,6 +90,11 @@ namespace OperationJSONGenerator
                     implementationObject.Add("expression", processedExpression);
                     implementations.Add(implementationObject);
                 }
+                root.Add("implementations", implementations);
+            }
+
+            Console.WriteLine("JSON Generated:");
+            Console.WriteLine(root.ToString(Formatting.Indented));
         }
 
         static string ProcessExpression(string expression, List<string> inputs) {
