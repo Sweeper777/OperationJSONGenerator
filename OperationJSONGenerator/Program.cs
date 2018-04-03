@@ -91,5 +91,11 @@ namespace OperationJSONGenerator
                     implementations.Add(implementationObject);
                 }
         }
+
+        static string ProcessExpression(string expression, List<string> inputs) {
+            var regexForInputs = string.Join("|", inputs.Select(x => Regex.Escape(x)));
+            var mainRegex = $"(?=({regexForInputs})\\b)";
+            return Regex.Replace(expression, mainRegex, "$");
+        }
     }
 }
