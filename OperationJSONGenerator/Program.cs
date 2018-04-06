@@ -6,12 +6,9 @@ using System.Linq;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace OperationJSONGenerator
-{
-    class MainClass
-    {
-        public static void Main(string[] args)
-        {
+namespace OperationJSONGenerator {
+    class MainClass {
+        public static void Main(string[] args) {
             var filePath = "";
             var fileName = "";
             while (true) {
@@ -91,7 +88,7 @@ namespace OperationJSONGenerator
                         return;
                     }
                     var implementationObject = new JObject();
-                    var processedExpression = ProcessExpression(match.Groups[2].Value, inputNames.Concat(new[] {"pi", "pref90", "pref180"}).ToList());
+                    var processedExpression = ProcessExpression(match.Groups[2].Value, inputNames.Concat(new[] { "pi", "pref90", "pref180" }).ToList());
                     implementationObject.Add("resultName", match.Groups[1].Value);
                     implementationObject.Add("expression", processedExpression);
                     implementations.Add(implementationObject);
